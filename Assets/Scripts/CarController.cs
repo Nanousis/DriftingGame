@@ -211,8 +211,9 @@ public class CarController : MonoBehaviour
         }
         if (handrbake)
         {
+            clutch = 0;
             colliders.RRWheel.brakeTorque =  brakePower * 1000f;
-            colliders.RLWheel.brakeTorque =  brakePower * 1000f;
+            colliders.RLWheel.brakeTorque =   brakePower * 1000f;
         }
 
 
