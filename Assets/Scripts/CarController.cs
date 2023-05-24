@@ -54,6 +54,7 @@ public class CarController : MonoBehaviour
     public float increaseGearRPM;
     public float decreaseGearRPM;
     public float changeGearTime=0.5f;
+    private bool handrbake = false;
 
     public GameObject tireTrail;
     public Material brakeMaterial;
@@ -166,7 +167,7 @@ public class CarController : MonoBehaviour
         {
             brakeInput = 0;
         }
-        
+        handrbake = (Input.GetKey(KeyCode.Space));
 
 
         /*
@@ -207,6 +208,11 @@ public class CarController : MonoBehaviour
                 brakeMaterial.DisableKeyword("_EMISSION");
                 brakeMaterial.SetColor("_EmissionColor", Color.black);
             }
+        }
+        if (handrbake)
+        {
+            colliders.RRWheel.brakeTorque =  brakePower * 1000f;
+            colliders.RLWheel.brakeTorque =  brakePower * 1000f;
         }
 
 
